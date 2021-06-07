@@ -1,6 +1,7 @@
 package net.smartgekko.moviesearch.view.activities
 
-import android.content.Context
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import net.smartgekko.moviesearch.R
 import net.smartgekko.moviesearch.databinding.ActivityMainBinding
 import net.smartgekko.moviesearch.utils.ANIM_TIMER_PERIOD
+import net.smartgekko.moviesearch.utils.tmdbApiKeyV3
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +25,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         fun goHome() {
+            try{
+                val api_key = tmdbApiKeyV3
+            } catch (e:Exception){
+                val aboutDialog: AlertDialog = AlertDialog.Builder(
+                    applicationContext
+                ).setMessage("There are no API Key found for:\n local.properties: tmdb_api_key_v3")
+                    .setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+                       finish()
+                    }).create()
+
+                aboutDialog.show()
+            }
+
             val intent = Intent(applicationContext, HomeActivity::class.java)
             startActivity(intent)
         }
