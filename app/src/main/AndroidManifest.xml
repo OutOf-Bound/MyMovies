@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.smartgekko.moviesearch">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/sg_logo_ms"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MovieSearch">
+        <activity android:name=".view.activities.SettingsActivity"></activity>
+
+        <receiver
+            android:name=".utils.AppBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+        <service
+            android:name=".utils.CheckInetConnectionService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".view.activities.MovieDescriptionActivity" />
+        <activity android:name=".view.activities.FavoritesActivity" />
+        <activity android:name=".view.activities.SearchResultsActivity" />
+        <activity android:name=".view.activities.SearchByPeopleActivity" />
+        <activity android:name=".view.activities.SearchByCategoryActivity" />
+        <activity android:name=".view.activities.SearchByNameActivity" />
+        <activity android:name=".view.activities.SearchActivity" />
+        <activity android:name=".view.activities.HomeActivity" />
+        <activity android:name=".view.activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
