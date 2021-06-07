@@ -41,10 +41,6 @@ class SearchResultsActivity : AppCompatActivity() {
                     goHome()
                     true
                 }
-                R.id.search -> {
-                    goSearch()
-                    true
-                }
                 R.id.favorite -> {
                     goFavorites()
                     true

@@ -66,10 +66,6 @@ class HomeActivity : FragmentActivity() {
                     goFavorites()
                     true
                 }
-                R.id.search -> {
-                    goSearch()
-                    true
-                }
                 R.id.settings -> {
                     goSettings()
                     true
